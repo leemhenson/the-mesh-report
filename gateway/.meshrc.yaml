@@ -13,3 +13,11 @@ sources:
       handler:
           graphql:
               endpoint: http://localhost:4002/
+
+additionalTypeDefs: |
+    extend type Query {
+      foo: String!
+    }
+
+additionalResolvers:
+    - ./src/mesh-resolvers.ts
