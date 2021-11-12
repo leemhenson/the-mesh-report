@@ -1,7 +1,5 @@
 serve:
-    port: 4000
-    browser: false
-    playground: true
+    customServerHandler: ./dist/index.js
 
 sources:
     - name: WorkspacesService
