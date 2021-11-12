@@ -45,6 +45,6 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
-server.listen({ port: 4001 }).then(({ url }) => {
+server.listen({ port: 4002 }).then(({ url }) => {
     console.log(`🚀  Workflows service ready at ${url}`);
 });

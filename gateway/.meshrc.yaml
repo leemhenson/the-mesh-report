@@ -1,0 +1,14 @@
+serve:
+    port: 4000
+    browser: false
+    playground: true
+
+sources:
+    - name: WorkspacesService
+      handler:
+          graphql:
+              endpoint: http://localhost:4001/
+    - name: WorkflowsService
+      handler:
+          graphql:
+              endpoint: http://localhost:4002/

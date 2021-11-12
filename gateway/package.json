@@ -13,5 +13,10 @@
     "prettier": "^2.4.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.43.6",
+    "@graphql-mesh/graphql": "^0.20.3",
+    "graphql": "^15.7.2"
   }
 }
