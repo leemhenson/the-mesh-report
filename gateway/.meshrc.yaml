@@ -1,5 +1,8 @@
+require:
+    - ts-node/register/transpile-only
+
 serve:
-    customServerHandler: ./dist/index.js
+    customServerHandler: ./src/index.ts
 
 sources:
     - name: WorkspacesService
