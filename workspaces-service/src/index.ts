@@ -42,7 +42,18 @@ const resolvers = {
     },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    plugins: [
+        {
+            requestDidStart: context => {
+                console.log('Request started! Query:\n' + context.request.query);
+                return Promise.resolve();
+            },
+        },
+    ],
+});
 
 server.listen({ port: 4001 }).then(({ url }) => {
     console.log(`🚀  Workspaces service ready at ${url}`);

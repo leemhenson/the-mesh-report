@@ -6,12 +6,12 @@ export const resolvers: Resolvers = {
         foo: async () => {
             return 'foo!'; // type-safe, try changing this to a number
         },
-        ws: async (_, { id }, { WorkspacesService }) => {
-            console.log('before', { id });
-            const res = await WorkspacesService.Query.workspace({ args: { id } });
-
-            console.log('after', { res });
-            return res || null;
-        }, // typesafe service client
+        ws: async (root, args, context, info) =>
+            context.WorkspacesService.Query.workspace({
+                root,
+                args: { id: args.id },
+                context,
+                info,
+            }), // typesafe service client
     },
 };
