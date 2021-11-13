@@ -47,9 +47,8 @@ const server = new ApolloServer({
     resolvers,
     plugins: [
         {
-            requestDidStart: context => {
-                console.log('Request started! Query:\n' + context.request.query);
-                return Promise.resolve();
+            async requestDidStart(context) {
+                console.log(context.request.query);
             },
         },
     ],

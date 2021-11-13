@@ -9,14 +9,30 @@ sources:
       handler:
           graphql:
               endpoint: http://localhost:4001/
+    #   transforms:
+    #       - typeMerging:
+    #         queryFields:
+    #             - queryFieldName: workspace
+    #               keyField: id
+
     - name: WorkflowsService
       handler:
           graphql:
               endpoint: http://localhost:4002/
+    #   transforms:
+    #       - typeMerging:
+    #             queryFields:
+    #                 - queryFieldName: workflow
+    #                   keyField: id
+
+transforms:
+    - filterSchema:
+          filters:
+              - Workspace.!workflowIds
 
 additionalTypeDefs: |
-    extend type Query {
-      foo: String!
+    extend type Workspace {
+      workflows: [Workflow!]!
     }
 
 additionalResolvers:
