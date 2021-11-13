@@ -17,7 +17,6 @@ sources:
 additionalTypeDefs: |
     extend type Query {
       foo: String!
-      ws(id: ID!): Workspace
     }
 
 additionalResolvers:
