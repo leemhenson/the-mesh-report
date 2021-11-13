@@ -7,8 +7,12 @@ export const resolvers: Resolvers = {
             selectionSet: '{ workflowIds }',
             resolve: async (root, _, context, info) => {
                 console.log(root);
+                const rootWithSelectionSet: typeof root & {
+                    workflowIds: string[];
+                } = root as any;
+
                 return Promise.all(
-                    root.workflowIds.map(workflowId =>
+                    rootWithSelectionSet.workflowIds.map(workflowId =>
                         // typesafe service client
                         context.WorkflowsService.Query.workflow({
                             root,
